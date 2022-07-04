@@ -13,6 +13,12 @@ URL = {
     'mac': 'https://iphoriya.ru/product-category/mac/',
     'airpods': 'https://iphoriya.ru/product-category/airpods/'
 }
+DEVICES = {
+            'iphone' : ['iphone-13-pro-max', 'iphone-13-pro', 'iphone-13', 'iphone-13-mini', 'iphone-se-2022', 'iphone-12-pro-max', 'iphone-12-pro', 'iphone-12', 'iphone-12-mini', 'iphone-12-mini', 'iphone-11', 'iphone-se-2020', 'iphone-xr'],
+            'ipad' : ['ipad-pro-12-9-2021', 'ipad-pro-11-2021', 'ipad-air-2022', 'ipad-air-2020', 'ipad-2021', 'ipad-mini-2021']
+}
+#print(DEVICES)
+        
 HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
 }
@@ -41,20 +47,21 @@ def get_content(html):
 def save_doc(items, path):
     with open(path, 'w', newline='', encoding="utf-8") as file:
         writer = csv.writer(file, delimiter=';')
-        writer.writerow(['phone', 'price', 'link'])
+        writer.writerow(['device', 'price', 'link'])
         for item in items:
             writer.writerow([item['name'], item['price'], item['link']])
 
 def parser():
-    html = get_html(URL['iphone']+'iphone-13-pro-max')
-    if html.status_code == 200:
-        products = []
-        html = get_html(URL['iphone']+'iphone-13-pro-max')
-        products.extend(get_content(html.text))
-        save_doc(products, CSV)
-        pass
-    else:
-        print('Error')
+    products = []
+    for device in DEVICES:
+        for i in range(0, len(DEVICES[device])):
+            html = get_html(URL[device]+DEVICES[device][i])
+            if html.status_code == 200:
+                products.extend(get_content(html.text))
+                pass
+            else:
+                print('Error')
+    save_doc(products, CSV)
     
     
 parser()
