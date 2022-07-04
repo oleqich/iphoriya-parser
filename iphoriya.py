@@ -15,7 +15,10 @@ URL = {
 }
 DEVICES = {
             'iphone' : ['iphone-13-pro-max', 'iphone-13-pro', 'iphone-13', 'iphone-13-mini', 'iphone-se-2022', 'iphone-12-pro-max', 'iphone-12-pro', 'iphone-12', 'iphone-12-mini', 'iphone-12-mini', 'iphone-11', 'iphone-se-2020', 'iphone-xr'],
-            'ipad' : ['ipad-pro-12-9-2021', 'ipad-pro-11-2021', 'ipad-air-2022', 'ipad-air-2020', 'ipad-2021', 'ipad-mini-2021']
+            'ipad' : ['ipad-pro-12-9-2021', 'ipad-pro-11-2021', 'ipad-air-2022', 'ipad-air-2020', 'ipad-2021', 'ipad-mini-2021'],
+            'watch' : ['apple-watch-series-7', 'apple-watch-series-7-nike', 'apple-watch-series-6', 'apple-watch-series-6-watch', 'apple-watch-se-nike', 'apple-watch-series-3'],
+            'mac' : ['macbook-pro', 'macbook-air', 'imac', 'imac-pro', 'mac-mini', 'mac-studio'],
+            'airpods': []
 }
 #print(DEVICES)
         
